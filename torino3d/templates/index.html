@@ -48,19 +48,18 @@
 
 
     function getBuildings(bounds_wkt){
-      //jQuery.getJSON('get_geojson.py?bbox_wkt='+bounds_wkt,
       jQuery.get('{% url 'json' %}' + '?bbox_wkt='+bounds_wkt,
       function(data){
         build
           .setStyle({ wallColor: 'rgb(200,190,180)', roofColor: 'rgb(255, 255, 255)', strokeRoofs: true})
           .setData(data)
-	;	
-	});
+	      ;	
+	    });
     };
 
    //Create map, with center coordinates for Torino
    var latlon = new L.LatLng(45.07, 7.66);
-   var map = L.map('map').setView(latlon, 18);
+   var map = L.map('map').setView(latlon, 17);
 
    //Add attribution
    //map.attributionControl.setPrefix('<a href="http://tomholderness.wordpress.com" target="_blank">3DLondon Map</a> | 3D Building data &copy the <a href="http://www.geoinformationgroup.co.uk/products/ukmap" target=_blank">GeoInformation Group</a> provided by <a href="http://www.landmap.ac.uk/" target="_blank">Landmap</a> | Basemap &copy <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>  <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a> & <a href="http://cloudmade.com/" target="_blank">Cloudmade</a>');
