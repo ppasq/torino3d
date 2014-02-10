@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,14 +18,14 @@
   </script> 
 
   <!--Leaflet map library (hosted version)-->
-  <script src="leaflet-0.7.1/leaflet.js"></script>
+  <script src="{% static 'js/leaflet-0.7.1/leaflet.js' %}"></script>
   <!-- <script src="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.js"></script> -->
 
   <!--OSM Buildings library -->
-  <script src="static/js/osmbuildings/dist/OSMBuildings-Leaflet.js"></script>
+  <script src="{% static 'js/osmbuildings/dist/OSMBuildings-Leaflet.js' %}"></script>
   <!-- <script src="L.BuildingsLayer.js"></script> -->
 
-  <link rel="stylesheet" href="leaflet-0.7.1/leaflet.css" />
+  <link rel="stylesheet" href="{% static 'js/leaflet-0.7.1/leaflet.css' %}" />
   <!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.css"/> -->
   <!--[if lte IE 8]>
   <link rel="stylesheet" href="leaflet-0.7.1/leaflet.ie.css" />

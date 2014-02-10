@@ -8,8 +8,8 @@ from .views import Home
 urlpatterns = patterns('',
     # Examples:
     #url(r'^$', 'torino3d.views.home', name='home'),
-    url(r'^$', Home.as_view(), name='json'),
-    url(r'^home/', TemplateView.as_view(template_name="index.html")),
+    url(r'^json/?$', Home.as_view(), name='json'),
+    url(r'^$', TemplateView.as_view(template_name="index.html")),
     # url(r'^torino3d/', include('torino3d.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
