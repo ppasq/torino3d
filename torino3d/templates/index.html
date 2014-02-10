@@ -1,4 +1,3 @@
-{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,14 +17,14 @@
   </script> 
 
   <!--Leaflet map library (hosted version)-->
-  <script src="{% static 'js/leaflet-0.7.1/leaflet.js' %}"></script>
+  <script src="http://playground.ithacaweb.org/apps/world/leaflet/leaflet-0.7.1/leaflet.js"></script>
   <!-- <script src="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.js"></script> -->
 
   <!--OSM Buildings library -->
-  <script src="{% static 'js/osmbuildings/dist/OSMBuildings-Leaflet.js' %}"></script>
+  <script src="http://playground.ithacaweb.org/apps/world/leaflet/osmbuildings/dist/OSMBuildings-Leaflet.js"></script>
   <!-- <script src="L.BuildingsLayer.js"></script> -->
 
-  <link rel="stylesheet" href="{% static 'js/leaflet-0.7.1/leaflet.css' %}" />
+  <link rel="stylesheet" href="http://playground.ithacaweb.org/apps/world/leaflet/leaflet-0.7.1/leaflet.css" />
   <!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.css"/> -->
   <!--[if lte IE 8]>
   <link rel="stylesheet" href="leaflet-0.7.1/leaflet.ie.css" />
@@ -76,7 +75,7 @@
    //map.attributionControl.setPrefix('<a href="http://tomholderness.wordpress.com" target="_blank">3DLondon Map</a> | 3D Building data &copy the <a href="http://www.geoinformationgroup.co.uk/products/ukmap" target=_blank">GeoInformation Group</a> provided by <a href="http://www.landmap.ac.uk/" target="_blank">Landmap</a> | Basemap &copy <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>  <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a> & <a href="http://cloudmade.com/" target="_blank">Cloudmade</a>');
 
    //Add a basemap
-   var basemap = new L.TileLayer('/geoserver/gwc/service/tms/1.0.0/torino@EPSG%3A900913@png/{z}/{x}/{y}.png', {tms: true,});
+   var basemap = new L.TileLayer('http://playground.ithacaweb.org/geoserver/gwc/service/tms/1.0.0/torino@EPSG%3A900913@png/{z}/{x}/{y}.png', {tms: true,});
    map.addLayer(basemap);
 
    //Add scale bar to map

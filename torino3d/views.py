@@ -26,7 +26,7 @@ class Home(View):
         # Database cursor
         cur = conn.cursor()
         # Query
-        cur.execute('SELECT row_to_json(fc) FROM ( SELECT \'FeatureCollection\' As type, array_to_json(array_agg(f)) As features FROM (SELECT \'Feature\' As type, ST_AsGeoJSON(ST_Transform(lg.the_geom,4326))::json As geometry, row_to_json((SELECT l FROM (SELECT height) As l)) As properties FROM torino_building As lg WHERE ST_Within(lg.the_geom, ST_Transform(ST_GeomFromText(%s,4326),27700)) LIMIT 100000) As f )  As fc;',[bbox_wkt])
+        cur.execute('SELECT row_to_json(fc) FROM ( SELECT \'FeatureCollection\' As type, array_to_json(array_agg(f)) As features FROM (SELECT \'Feature\' As type, ST_AsGeoJSON(ST_Transform(lg.the_geom,4326))::json As geometry, row_to_json((SELECT l FROM (SELECT height) As l)) As properties FROM torino_building As lg WHERE ST_Within(lg.the_geom, ST_Transform(ST_GeomFromText(%s,4326),27700)) LIMIT 100000) As f )  As fc;' % bbox_wkt)
         array = cur.fetchall()
 
         # Return data as GeoJSON
