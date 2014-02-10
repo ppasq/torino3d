@@ -12,6 +12,7 @@ class Home(View):
     def get(self, request, *args, **kwargs):
 
         bbox_wkt = urllib.unquote(request.GET.get('bbox_wkt'))
+        print bbox_wkt
 
         # Database connection
         conn = psycopg2.connect("host=130.192.92.199 dbname=osm user=osm password=osm")
@@ -24,7 +25,7 @@ class Home(View):
           ST_AsGeoJSON(ST_Transform(lg.the_geom,4326))::json As geometry, \
           row_to_json((SELECT l FROM (SELECT height) As l)) As properties FROM \
            torino_buildings As lg WHERE ST_Within(lg.the_geom, \
-            ST_Transform(ST_GeomFromText(%s,4326),27700)) LIMIT 100000) As f )  \
+            ST_Transform(ST_GeomFromText(%s,4326),4326)) LIMIT 100000) As f )  \
             As fc;',[bbox_wkt])
         array = cur.fetchall()
 
