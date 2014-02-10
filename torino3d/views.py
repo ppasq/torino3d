@@ -28,8 +28,6 @@ class Home(View):
             As fc;' % bbox_wkt)
         array = cur.fetchall()
 
-        # Return data as GeoJSON
-        print "Content-type: application/json\n"
         # Format JSON data
         jsondata = json.dumps(array[0])
         # Hack to remove Ptthon list brackets

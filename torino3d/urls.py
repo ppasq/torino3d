@@ -7,14 +7,7 @@ from .views import Home
 
 urlpatterns = patterns('',
     # Examples:
-    #url(r'^$', 'torino3d.views.home', name='home'),
     url(r'^json/?$', Home.as_view(), name='json'),
     url(r'^$', TemplateView.as_view(template_name="index.html")),
-    # url(r'^torino3d/', include('torino3d.foo.urls')),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
 )
