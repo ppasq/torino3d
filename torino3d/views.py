@@ -1,9 +1,9 @@
 import json
 import psycopg2
+import urllib
 
 from django.shortcuts import render
 from django.views.generic.base import View
-from django.db.models import Count
 from django.http import HttpResponse
 
 class Home(View):
@@ -12,7 +12,7 @@ class Home(View):
     def get(self, request, *args, **kwargs):
 
         bbox_wkt = request.GET.get('bbox_wkt')
-
+        print urllib.unquote(bbox_wkt)
         # Database connection
         conn = psycopg2.connect("host=130.192.92.199 dbname=osm user=osm password=osm")
         
