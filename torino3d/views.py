@@ -11,8 +11,8 @@ class Home(View):
 
     def get(self, request, *args, **kwargs):
 
-        bbox_wkt = request.GET.get('bbox_wkt')
-        print urllib.unquote(bbox_wkt)
+        bbox_wkt = urllib.unquote(request.GET.get('bbox_wkt'))
+
         # Database connection
         conn = psycopg2.connect("host=130.192.92.199 dbname=osm user=osm password=osm")
         
