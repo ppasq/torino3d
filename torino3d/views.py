@@ -32,8 +32,8 @@ class Home(View):
         # Format JSON data
         jsondata = json.dumps(array[0])
         # Hack to remove Ptthon list brackets
-        jsondata = jsondata[2:-2]
+        jsondata = jsondata[1:-1]
         # Remove escaped strings
-        jsondata = jsondata.replace("\\","")
+        # jsondata = jsondata.replace("\\","")
         # Print the data
         return HttpResponse(jsondata)
