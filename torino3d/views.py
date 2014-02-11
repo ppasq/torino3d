@@ -15,7 +15,7 @@ class Home(View):
         print bbox_wkt
 
         # Database connection
-        conn = psycopg2.connect("host=130.192.92.199 dbname=osm user=osm password=osm")
+        conn = psycopg2.connect("host=hostname dbname=postgres user=username password=pwd")
         
         # Database cursor
         cur = conn.cursor()
@@ -28,6 +28,8 @@ class Home(View):
             ST_Transform(ST_GeomFromText(%s,4326),4326)) LIMIT 100000) As f )  \
             As fc;',[bbox_wkt])
         array = cur.fetchall()
+
+        # ST_Transform can be removed since no transformation is needed
 
         # Format JSON data
         jsondata = json.dumps(array[0])
